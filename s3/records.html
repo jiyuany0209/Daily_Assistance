@@ -1,0 +1,107 @@
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache">      
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">      
+<meta HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">      
+<meta HTTP-EQUIV="expires" CONTENT="0">
+  <title>Records</title>
+  		<link rel="stylesheet" href="records.css">
+  		<script type="text/javascript" src="apiGateway-js-sdk/lib/axios/dist/axios.standalone.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/sha256.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/hmac.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/enc-base64.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/url-template/url-template.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/utils.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/apigClient.js"></script>
+    <script type="text/javascript" src="dist/aws-sdk.js"></script>
+    <script type="text/javascript" src="dist/aws-sdk.min.js"></script>
+
+    <script>
+        function redirectTonext(OriginalUrl) {
+            var uri = window.location.href;
+            var id_token = uri.match(/id_token=(.*)&access/)[1];
+            var access_token = uri.match(/access_token=(.*)&expires/)[1];
+            let redirectUrl = `${OriginalUrl}?id_token=${id_token}&access_token=${access_token}&expires`;
+            return window.location.replace(redirectUrl);
+        }
+    </script>
+
+
+<style>
+      ul {
+      list-style-type: none;
+      margin: 10;
+      padding: 10;
+      overflow: hidden;
+      background-color: #333;
+      }
+
+      li {
+        float: left;
+      }
+
+      li a {
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a.active {
+        background-color: #4CAF50;
+        color: white;
+      }
+
+      li a:hover:not(.active) {
+        background-color: #4174f4;
+      }
+
+</style>
+
+	
+</head>
+
+
+
+<nav>
+  <ul>
+    <li>
+      
+      <a id="homepage" onclick="redirectTonext('https://s3.amazonaws.com/dailyassistant/home.html')">Home</a>  <a id="chatpage" onclick="redirectTonext('https://s3.amazonaws.com/dailyassistant/chat.html')">Chatbot</a>  <a class="active">My Records</a>  <a id="preferencespage" onclick="redirectTonext('https://s3.amazonaws.com/dailyassistant/preferences.html')">My Preferences</a>  <a id="checklistpage" onclick="redirectTonext('https://s3.amazonaws.com/dailyassistant/checklist.html')">My Checklist</a> 
+
+    </li>
+  </ul>
+
+</nav>
+
+
+<h1 id = "test">Recommendation Records</h1>
+
+<div class="custom-select" style="width:100px;">
+
+  <select id = "choose">
+    <option value="none">Select type</option>
+    <option value="restaurants">restaurants</option>
+    <option value="movies" >movies</option>
+    <option value="music"  >music</option>
+    <!-- <option value="3">Citroen</option> -->
+    <!-- < -->
+  </select>
+</div>
+
+<div id="div"></div>
+<script type="text/javascript" src="records.js"></script>
+	<!-- <script type="text/javascript" src="records.js"></script> -->
+	<!-- 先search -->
+	<!-- 找到search result? -->
+
+
+
+
+</html>

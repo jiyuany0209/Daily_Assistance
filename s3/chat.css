@@ -1,0 +1,100 @@
+@import
+  url("https://fonts.googleapis.com/css?family=Raleway");
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background-image: url("https://s3-us-west-2.amazonaws.com/mypublicimage/new_york_background.png");
+  background-color: #cccccc;
+}
+
+body,html{
+  padding:0;
+  margin:0;
+  margin-bottom:40;
+  font-family:'Raleway', sans-serif;
+}
+
+h1{
+  text-align:center;
+  margin-top:5;
+}
+
+.phone-top{
+  background:black;
+  width:100%;
+  position:absolute;
+  top:0;
+  padding:7px;
+}
+
+.container{
+  width: 440px;
+  border: solid black 1px;
+  border-radius: 20px;
+  position:relative;
+  overflow:hidden;
+  bottom:0;
+}
+
+.chat-container{
+  background:rgba(255, 255, 255, 0.1);
+  display:flex;
+  flex-direction:column;
+  padding:10px;
+  margin:0;
+  align-items:flex-start;
+  justify-content:center;
+  list-style:none;
+  max-height:600px;
+  overflow:scroll;
+}
+
+.message{
+  position:relative;
+  border-radius:100px;
+  margin-bottom:30px;
+  z-index:-1;
+}
+
+.left{
+  background:rgba(250, 70, 80, 0.5);
+  padding: 15px 20px 15px 70px;
+}
+
+.right{
+  background:rgba(98, 157, 252, 0.5);
+  align-self:flex-end;
+  padding: 15px 70px 15px 20px;
+}
+
+.message p {
+  margin:0;
+}
+
+.profile{
+  border-radius:50%;
+  position:absolute;
+  object-fit:cover;
+  width:50px;
+  height:50px;
+  left:10px;
+  top:-10px;
+}
+
+.right .profile{
+  left:auto;
+  right:10px;
+}
+
+.reply-input{
+  width:100%;
+  position:absolute;
+  bottom:0;
+  padding:10px;
+}

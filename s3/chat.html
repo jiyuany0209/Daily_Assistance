@@ -1,0 +1,127 @@
+
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Daily Assistance ChatBot</title>
+  
+  
+  
+      <link rel="stylesheet" href="chat.css">
+      <script type="text/javascript" src="apiGateway-js-sdk/lib/axios/dist/axios.standalone.js"></script>
+      <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+      <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/sha256.js"></script>
+      <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/hmac.js"></script>
+      <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/enc-base64.js"></script>
+      <script type="text/javascript" src="apiGateway-js-sdk/lib/url-template/url-template.js"></script>
+      <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+      <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+      <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+      <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/utils.js"></script>
+      <script type="text/javascript" src="apiGateway-js-sdk/apigClient.js"></script>
+      <script type="text/javascript" src="dist/aws-sdk.js"></script>
+      <script type="text/javascript" src="dist/aws-sdk.min.js"></script>
+      <script  src="chat.js"></script>
+
+      <script>
+        function redirectTonext(OriginalUrl) {
+            var uri = window.location.href;
+            var id_token = uri.match(/id_token=(.*)&access/)[1];
+            var access_token = uri.match(/access_token=(.*)&expires/)[1];
+            let redirectUrl = `${OriginalUrl}?id_token=${id_token}&access_token=${access_token}&expires`;
+            return window.location.replace(redirectUrl);
+        }
+    </script>
+
+
+      <style>
+      ul {
+      list-style-type: none;
+      margin: 10;
+      padding: 10;
+      overflow: hidden;
+      background-color: #333;
+      }
+
+      li {
+        float: left;
+      }
+
+      li a {
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a.active {
+        background-color: #4CAF50;
+        color: white;
+      }
+
+      li a:hover:not(.active) {
+        background-color: #4174f4;
+      }
+
+      </style>
+
+  
+</head>
+
+<nav>
+  <ul>
+    <li>
+      
+      <a id="homespage" onclick="redirectTonext('https://s3.amazonaws.com/dailyassistant/home.html')">Home</a>  <a class="active">Chatbot</a>  <a id="recordspage" onclick="redirectTonext('https://s3.amazonaws.com/dailyassistant/records.html')">My Records</a>  <a id="preferencespage" onclick="redirectTonext('https://s3.amazonaws.com/dailyassistant/preferences.html')">My Preferences</a>  <a id="checklistpage" onclick="redirectTonext('https://s3.amazonaws.com/dailyassistant/checklist.html')">My Checklist</a> 
+
+    </li>
+  </ul>
+</nav>
+
+<h1>Daily Assistance</h1>
+  <div class="container">
+    <div class="phone-top"></div>
+    <ul class="chat-container">
+      <li class=" message right">
+        <img class="profile" src="https://s3-us-west-2.amazonaws.com/mypublicimage/user.png"alt="user photo">
+        <p id="chatlog8" class="chatlog">&nbsp;</p>
+      </li>
+      <li class="message left">
+        <img class="profile" src="https://s3-us-west-2.amazonaws.com/mypublicimage/robot.png"alt="user photo">
+        <p id="chatlog7" class="chatlog">Hello, I am your Daily Assistant. You can talk to me like the following!</p>
+      </li>
+      <li class=" message right">
+        <img class="profile" src="https://s3-us-west-2.amazonaws.com/mypublicimage/user.png"alt="user photo">
+        <p id="chatlog6" class="chatlog">Tell me the weather.</p>
+      </li>
+      <li class="message left">
+        <img class="profile" src="https://s3-us-west-2.amazonaws.com/mypublicimage/robot.png"alt="user photo">
+        <p id="chatlog5" class="chatlog">You can also ask me for recommendations!</p>
+      </li>
+      <li class=" message right">
+        <img class="profile" src="https://s3-us-west-2.amazonaws.com/mypublicimage/user.png"alt="user photo">
+        <p id="chatlog4" class="chatlog">Give me some movies.</p>
+      </li>
+      <li class="message left">
+        <img class="profile" src="https://s3-us-west-2.amazonaws.com/mypublicimage/robot.png"alt="user photo">
+        <p id="chatlog3" class="chatlog">I can also help you to remember some things!</p>
+      </li>
+      <li class=" message right">
+        <img class="profile" src="https://s3-us-west-2.amazonaws.com/mypublicimage/user.png"alt="user photo">
+        <p id="chatlog2" class="chatlog">Remind me of a meeting.</p>
+      </li>
+      <li class="message left">
+        <img class="profile" src="https://s3-us-west-2.amazonaws.com/mypublicimage/robot.png"alt="user photo">
+        <p id="chatlog1" class="chatlog">So, begin to talk with me!</p>
+      </li>
+
+    </ul>
+    <input class="reply-input" type="text" id="chatbox" placeholder="Type to talk with me" onfocus="placeHolder()">
+  </div>
+
+
+
+
+</body>
+
+</html>

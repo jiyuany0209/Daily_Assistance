@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <meta charset ="utf-8">
+    <meta name ="viewport" content="width=device-width, intial-scale=1">
+    <title>Daily Assistance ChatBot Web Application</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <script>
+        function redirectTonext(OriginalUrl) {
+            var uri = window.location.href;
+            var id_token = uri.match(/id_token=(.*)&access/)[1];
+            var access_token = uri.match(/access_token=(.*)&expires/)[1];
+            let redirectUrl = `${OriginalUrl}?id_token=${id_token}&access_token=${access_token}&expires`;
+            return window.location.replace(redirectUrl);
+        }
+    </script> 
+     
+     
+    
+    </head>
+    
+
+        <header>
+            <h2 href="#"> Enjoying Your Life From Now </h2>
+            <nav>
+               <li><a id="chatpage" onclick="redirectTonext('https://s3.amazonaws.com/dailyassistant/chat.html')">ChatBot</a> </li> 
+                <li><a id="recordspage" onclick="redirectTonext('https://s3.amazonaws.com/dailyassistant/records.html')">My Records</a> </li>
+                <li><a id="preferencespage" onclick="redirectTonext('https://s3.amazonaws.com/dailyassistant/preferences.html')">My Preferences</a> </li>
+                <li><a id="checklistpage" onclick="redirectTonext('https://s3.amazonaws.com/dailyassistant/checklist.html')">My Checklist</a> </li>
+
+            </nav>
+            </header>
+            
+            <section class="hero">
+            <div class="background-image" style="background-image: url(https://s3-us-west-2.amazonaws.com/mypublicimage/newyork1.jpg)"></div>
+                <div class="hero-content-area">
+                <h1>Daily Assistance ChatBot</h1>
+                    <h3> Weather Inquiry </h3>
+                    <h3> Movie Music Restaurant Recommendation </h3>
+                    <h3> Reminder and Schedule </h3>
+                    <h3> Remember Your Preferences </h3>
+                </div>
+                
+            </section>
+    
+        
+        
+        
+        
+        
+
+
+        
+</html>

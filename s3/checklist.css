@@ -1,0 +1,26 @@
+@import
+  url("https://fonts.googleapis.com/css?family=Raleway");
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background-image: url("https://s3-us-west-2.amazonaws.com/mypublicimage/new_york_background.png");
+  background-color: #cccccc;
+}
+
+body,html{
+  padding: 0;
+  margin:0;
+  font-family:'Raleway', sans-serif;
+}
+
+h1{
+  text-align:center;
+  margin-top:5;
+}
+

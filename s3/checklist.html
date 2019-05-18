@@ -1,0 +1,96 @@
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Checklist</title>
+  		<link rel="stylesheet" href="checklist.css">
+  		<script type="text/javascript" src="apiGateway-js-sdk/lib/axios/dist/axios.standalone.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/sha256.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/hmac.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/enc-base64.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/url-template/url-template.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/utils.js"></script>
+		<script type="text/javascript" src="apiGateway-js-sdk/apigClient.js"></script>
+    <script type="text/javascript" src="dist/aws-sdk.js"></script>
+    <script type="text/javascript" src="dist/aws-sdk.min.js"></script>
+
+    <script>
+        function redirectTonext(OriginalUrl) {
+            var uri = window.location.href;
+            var id_token = uri.match(/id_token=(.*)&access/)[1];
+            var access_token = uri.match(/access_token=(.*)&expires/)[1];
+            let redirectUrl = `${OriginalUrl}?id_token=${id_token}&access_token=${access_token}&expires`;
+            return window.location.replace(redirectUrl);
+        }
+    </script>
+
+
+<style>
+      ul {
+      list-style-type: none;
+      margin: 10;
+      padding: 10;
+      overflow: hidden;
+      background-color: #333;
+      }
+
+      li {
+        float: left;
+      }
+
+      li a {
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a.active {
+        background-color: #4CAF50;
+        color: white;
+      }
+
+      li a:hover:not(.active) {
+        background-color: #4174f4;
+      }
+
+</style>
+	
+</head>
+
+
+
+<nav>
+  <ul>
+    <li>
+      
+      <a id="homepage" onclick="redirectTonext('https://s3.amazonaws.com/dailyassistant/home.html')">Home</a>  <a id="chatpage" onclick="redirectTonext('https://s3.amazonaws.com/dailyassistant/chat.html')">Chatbot</a> <a id="recordspage" onclick="redirectTonext('https://s3.amazonaws.com/dailyassistant/records.html')">My Records</a>  <a id="preferencespage" onclick="redirectTonext('https://s3.amazonaws.com/dailyassistant/preferences.html')">My Preferences</a> <a class="active">My Checklist</a> 
+
+    </li>
+  </ul>
+
+</nav>
+
+
+
+
+<h1 id = "test">Checklist Search</h1>
+
+<input class="reply-input" type="text" id="inputdate" placeholder="yyyy-mm-dd" onfocus="placeHolder()">
+
+</div>
+
+<div id="div"></div>
+
+	<script type="text/javascript" src="checklist.js"></script>
+	<!-- 先search -->
+	<!-- 找到search result? -->
+
+
+
+
+</html>
